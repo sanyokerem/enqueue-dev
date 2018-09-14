@@ -47,7 +47,6 @@ remote redis git@github.com:sanyokerem/redis.git
 remote rdkafka git@github.com:sanyokerem/rdkafka.git
 
 DIR=$(dirname $0);
-echo $DIR/../;
 
-split 'pkg/rdkafka' rdkafka
-split 'pkg/redis' redis
+split $DIR'/../pkg/rdkafka' rdkafka
+split $DIR'/../pkg/redis' redis
