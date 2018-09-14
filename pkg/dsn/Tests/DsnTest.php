@@ -24,7 +24,7 @@ class DsnTest extends TestCase
     {
         $this->expectException(\LogicException::class);
         $this->expectExceptionMessage('The DSN is invalid. Scheme contains illegal symbols.');
-        new Dsn('foo_&%&^bar://localhost');
+        new Dsn('foo_&%&^foo://localhost');
     }
 
     /**
@@ -83,18 +83,18 @@ class DsnTest extends TestCase
 
     public function testShouldParseQuery()
     {
-        $dsn = new Dsn('amqp+ext://theUser:thePass@theHost:1267/thePath?foo=fooVal&bar=bar%2fVal');
+        $dsn = new Dsn('amqp+ext://theUser:thePass@theHost:1267/thePath?foo=fooVal&foo=foo%2fVal');
 
-        $this->assertSame('foo=fooVal&bar=bar%2fVal', $dsn->getQueryString());
-        $this->assertSame(['foo' => 'fooVal', 'bar' => 'bar/Val'], $dsn->getQuery());
+        $this->assertSame('foo=fooVal&foo=foo%2fVal', $dsn->getQueryString());
+        $this->assertSame(['foo' => 'fooVal', 'foo' => 'foo/Val'], $dsn->getQuery());
     }
 
     public function testShouldParseQueryShouldPreservePlusSymbol()
     {
-        $dsn = new Dsn('amqp+ext://theUser:thePass@theHost:1267/thePath?foo=fooVal&bar=bar+Val');
+        $dsn = new Dsn('amqp+ext://theUser:thePass@theHost:1267/thePath?foo=fooVal&foo=foo+Val');
 
-        $this->assertSame('foo=fooVal&bar=bar+Val', $dsn->getQueryString());
-        $this->assertSame(['foo' => 'fooVal', 'bar' => 'bar+Val'], $dsn->getQuery());
+        $this->assertSame('foo=fooVal&foo=foo+Val', $dsn->getQueryString());
+        $this->assertSame(['foo' => 'fooVal', 'foo' => 'foo+Val'], $dsn->getQuery());
     }
 
     /**
@@ -186,11 +186,11 @@ class DsnTest extends TestCase
 
         yield ['foo:', 'foo', 'foo', []];
 
-        yield ['foo+bar:', 'foo+bar', 'foo', ['bar']];
+        yield ['foo+foo:', 'foo+foo', 'foo', ['foo']];
 
-        yield ['foo+bar+baz:', 'foo+bar+baz', 'foo', ['bar', 'baz']];
+        yield ['foo+foo+baz:', 'foo+foo+baz', 'foo', ['foo', 'baz']];
 
-        yield ['foo:?bar=barVal', 'foo', 'foo', []];
+        yield ['foo:?foo=barVal', 'foo', 'foo', []];
 
         yield ['amqp+ext://guest:guest@localhost:5672/%2f', 'amqp+ext', 'amqp', ['ext']];
 

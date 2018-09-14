@@ -37,7 +37,7 @@ class DefaultController extends Controller
         
         $producer->sendEvent('foo_topic', 'Hello world');
         
-        $producer->sendEvent('bar_topic', ['bar' => 'val']);
+        $producer->sendEvent('bar_topic', ['foo' => 'val']);
 
         $message = new Message();
         $message->setBody('baz');

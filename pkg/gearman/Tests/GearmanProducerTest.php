@@ -42,7 +42,7 @@ class GearmanProducerTest extends TestCase
 
     public function testShouldJsonEncodeMessageAndPutToExpectedTube()
     {
-        $message = new GearmanMessage('theBody', ['foo' => 'fooVal'], ['bar' => 'barVal']);
+        $message = new GearmanMessage('theBody', ['foo' => 'fooVal'], ['foo' => 'barVal']);
 
         $gearman = $this->createGearmanClientMock();
         $gearman
@@ -50,7 +50,7 @@ class GearmanProducerTest extends TestCase
             ->method('doBackground')
             ->with(
                 'theQueueName',
-                '{"body":"theBody","properties":{"foo":"fooVal"},"headers":{"bar":"barVal"}}'
+                '{"body":"theBody","properties":{"foo":"fooVal"},"headers":{"foo":"barVal"}}'
             )
         ;
         $gearman

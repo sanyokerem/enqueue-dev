@@ -42,7 +42,7 @@ class PheanstalkProducerTest extends TestCase
 
     public function testShouldJsonEncodeMessageAndPutToExpectedTube()
     {
-        $message = new PheanstalkMessage('theBody', ['foo' => 'fooVal'], ['bar' => 'barVal']);
+        $message = new PheanstalkMessage('theBody', ['foo' => 'fooVal'], ['foo' => 'barVal']);
 
         $pheanstalk = $this->createPheanstalkMock();
         $pheanstalk
@@ -54,7 +54,7 @@ class PheanstalkProducerTest extends TestCase
         $pheanstalk
             ->expects($this->once())
             ->method('put')
-            ->with('{"body":"theBody","properties":{"foo":"fooVal"},"headers":{"bar":"barVal"}}')
+            ->with('{"body":"theBody","properties":{"foo":"fooVal"},"headers":{"foo":"barVal"}}')
         ;
 
         $producer = new PheanstalkProducer($pheanstalk);

@@ -54,7 +54,7 @@ class PheanstalkConsumerTest extends TestCase
     public function testShouldReceiveFromQueueAndReturnMessageIfMessageInQueue()
     {
         $destination = new PheanstalkDestination('theQueueName');
-        $message = new  PheanstalkMessage('theBody', ['foo' => 'fooVal'], ['bar' => 'barVal']);
+        $message = new  PheanstalkMessage('theBody', ['foo' => 'fooVal'], ['foo' => 'barVal']);
 
         $job = new Job('theJobId', json_encode($message));
 
@@ -72,7 +72,7 @@ class PheanstalkConsumerTest extends TestCase
 
         $this->assertSame('theBody', $actualMessage->getBody());
         $this->assertSame(['foo' => 'fooVal'], $actualMessage->getProperties());
-        $this->assertSame(['bar' => 'barVal'], $actualMessage->getHeaders());
+        $this->assertSame(['foo' => 'barVal'], $actualMessage->getHeaders());
         $this->assertSame($job, $actualMessage->getJob());
     }
 
@@ -96,7 +96,7 @@ class PheanstalkConsumerTest extends TestCase
     public function testShouldReceiveNoWaitFromQueueAndReturnMessageIfMessageInQueue()
     {
         $destination = new PheanstalkDestination('theQueueName');
-        $message = new  PheanstalkMessage('theBody', ['foo' => 'fooVal'], ['bar' => 'barVal']);
+        $message = new  PheanstalkMessage('theBody', ['foo' => 'fooVal'], ['foo' => 'barVal']);
 
         $job = new Job('theJobId', json_encode($message));
 
@@ -114,7 +114,7 @@ class PheanstalkConsumerTest extends TestCase
 
         $this->assertSame('theBody', $actualMessage->getBody());
         $this->assertSame(['foo' => 'fooVal'], $actualMessage->getProperties());
-        $this->assertSame(['bar' => 'barVal'], $actualMessage->getHeaders());
+        $this->assertSame(['foo' => 'barVal'], $actualMessage->getHeaders());
         $this->assertSame($job, $actualMessage->getJob());
     }
 

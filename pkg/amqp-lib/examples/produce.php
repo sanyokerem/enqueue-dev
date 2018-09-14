@@ -39,7 +39,7 @@ $context->declareQueue($fooQueue);
 
 $context->bind(new AmqpBind($topic, $fooQueue));
 
-$barQueue = $context->createQueue('bar');
+$barQueue = $context->createQueue('foo');
 $barQueue->addFlag(AmqpQueue::FLAG_DURABLE);
 
 $context->deleteQueue($barQueue);

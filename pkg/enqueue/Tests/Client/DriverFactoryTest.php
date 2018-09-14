@@ -154,7 +154,7 @@ class DriverFactoryTest extends TestCase
 
         yield ['stomp+rabbitmq:', StompConnectionFactory::class, StompContext::class, [], RabbitMqStompDriver::class];
 
-        yield ['stomp+foo+bar:', StompConnectionFactory::class, StompContext::class, [], StompDriver::class];
+        yield ['stomp+foo+foo:', StompConnectionFactory::class, StompContext::class, [], StompDriver::class];
     }
 
     private function createConnectionFactoryMock(): PsrConnectionFactory

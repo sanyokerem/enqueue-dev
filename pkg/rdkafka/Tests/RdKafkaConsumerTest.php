@@ -198,7 +198,7 @@ class RdKafkaConsumerTest extends TestCase
     {
         $destination = new RdKafkaTopic('dest');
 
-        $expectedMessage = new  RdKafkaMessage('theBody', ['foo' => 'fooVal'], ['bar' => 'barVal']);
+        $expectedMessage = new  RdKafkaMessage('theBody', ['foo' => 'fooVal'], ['foo' => 'barVal']);
 
         $kafkaMessage = new Message();
         $kafkaMessage->err = RD_KAFKA_RESP_ERR_NO_ERROR;

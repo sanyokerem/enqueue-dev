@@ -103,9 +103,9 @@ class PreSendTest extends TestCase
         $this->assertSame('theChangedBody', $context->getMessage()->getBody());
         $this->assertNull($context->getMessage()->getContentType());
 
-        $context->changeBody('theChangedBodyAgain', 'foo/bar');
+        $context->changeBody('theChangedBodyAgain', 'foo/foo');
         $this->assertSame('theChangedBodyAgain', $context->getMessage()->getBody());
-        $this->assertSame('foo/bar', $context->getMessage()->getContentType());
+        $this->assertSame('foo/foo', $context->getMessage()->getContentType());
     }
 
     /**

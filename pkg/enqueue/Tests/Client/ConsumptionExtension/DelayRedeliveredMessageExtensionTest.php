@@ -28,7 +28,7 @@ class DelayRedeliveredMessageExtensionTest extends TestCase
         $originMessage->setRedelivered(true);
         $originMessage->setBody('theBody');
         $originMessage->setHeaders(['foo' => 'fooVal']);
-        $originMessage->setProperties(['bar' => 'barVal']);
+        $originMessage->setProperties(['foo' => 'barVal']);
 
         /** @var Message $delayedMessage */
         $delayedMessage = new Message();

@@ -109,7 +109,7 @@ class ResourcesTest extends TestCase
             $connectionClass,
             ['fooscheme', 'barscheme'],
             ['fooextension', 'barextension'],
-            'foo/bar'
+            'foo/foo'
         );
 
         $availableConnections = Resources::getAvailableConnections();
@@ -125,6 +125,6 @@ class ResourcesTest extends TestCase
         $this->assertSame(['fooextension', 'barextension'], $connectionInfo['supportedSchemeExtensions']);
 
         $this->assertArrayHasKey('package', $connectionInfo);
-        $this->assertSame('foo/bar', $connectionInfo['package']);
+        $this->assertSame('foo/foo', $connectionInfo['package']);
     }
 }

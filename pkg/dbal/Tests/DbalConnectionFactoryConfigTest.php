@@ -139,11 +139,11 @@ class DbalConnectionFactoryConfigTest extends TestCase
 
         yield [
             [
-                'connection' => ['foo' => 'fooVal', 'bar' => 'barVal'],
+                'connection' => ['foo' => 'fooVal', 'foo' => 'barVal'],
                 'table_name' => 'a_queue_table',
             ],
             [
-                'connection' => ['foo' => 'fooVal', 'bar' => 'barVal'],
+                'connection' => ['foo' => 'fooVal', 'foo' => 'barVal'],
                 'table_name' => 'a_queue_table',
                 'polling_interval' => 1000,
                 'lazy' => true,

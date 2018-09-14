@@ -80,7 +80,7 @@ class PrepareBodyExtensionTest extends TestCase
 
     public function testShouldThrowExceptionIfBodyIsArrayWithObjectsInSubArraysInsideOnSend()
     {
-        $message = new Message(['foo' => ['bar' => new \stdClass()]]);
+        $message = new Message(['foo' => ['foo' => new \stdClass()]]);
 
         $context = $this->createDummyPreSendContext('aTopic', $message);
 
@@ -96,31 +96,31 @@ class PrepareBodyExtensionTest extends TestCase
     {
         yield ['theBody', null, 'theBody', 'text/plain'];
 
-        yield ['theBody', 'foo/bar', 'theBody', 'foo/bar'];
+        yield ['theBody', 'foo/foo', 'theBody', 'foo/foo'];
 
         yield [12345, null, '12345', 'text/plain'];
 
-        yield [12345, 'foo/bar', '12345', 'foo/bar'];
+        yield [12345, 'foo/foo', '12345', 'foo/foo'];
 
         yield [12.345, null, '12.345', 'text/plain'];
 
-        yield [12.345, 'foo/bar', '12.345', 'foo/bar'];
+        yield [12.345, 'foo/foo', '12.345', 'foo/foo'];
 
         yield [true, null, '1', 'text/plain'];
 
-        yield [true, 'foo/bar', '1', 'foo/bar'];
+        yield [true, 'foo/foo', '1', 'foo/foo'];
 
         yield [null, null, '', 'text/plain'];
 
-        yield [null, 'foo/bar', '', 'foo/bar'];
+        yield [null, 'foo/foo', '', 'foo/foo'];
 
         yield [['foo' => 'fooVal'], null, '{"foo":"fooVal"}', 'application/json'];
 
-        yield [['foo' => 'fooVal'], 'foo/bar', '{"foo":"fooVal"}', 'foo/bar'];
+        yield [['foo' => 'fooVal'], 'foo/foo', '{"foo":"fooVal"}', 'foo/foo'];
 
         yield [new JsonSerializableObject(), null, '{"foo":"fooVal"}', 'application/json'];
 
-        yield [new JsonSerializableObject(), 'foo/bar', '{"foo":"fooVal"}', 'foo/bar'];
+        yield [new JsonSerializableObject(), 'foo/foo', '{"foo":"fooVal"}', 'foo/foo'];
     }
 
     private function createDummyPreSendContext($commandOrTopic, $message): PreSend

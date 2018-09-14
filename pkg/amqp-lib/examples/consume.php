@@ -23,7 +23,7 @@ $context = $factory->createContext();
 $queue = $context->createQueue('foo');
 $fooConsumer = $context->createConsumer($queue);
 
-$queue = $context->createQueue('bar');
+$queue = $context->createQueue('foo');
 $barConsumer = $context->createConsumer($queue);
 
 $consumers = [$fooConsumer, $barConsumer];

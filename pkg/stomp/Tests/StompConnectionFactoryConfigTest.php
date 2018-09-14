@@ -101,7 +101,7 @@ class StompConnectionFactoryConfigTest extends TestCase
         ];
 
         yield [
-            'stomp://localhost:1234?foo=bar&lazy=0&sync=true',
+            'stomp://localhost:1234?foo=foo&lazy=0&sync=true',
             [
                 'host' => 'localhost',
                 'port' => 1234,
@@ -112,13 +112,13 @@ class StompConnectionFactoryConfigTest extends TestCase
                 'connection_timeout' => 1,
                 'sync' => true,
                 'lazy' => false,
-                'foo' => 'bar',
+                'foo' => 'foo',
                 'ssl_on' => false,
             ],
         ];
 
         yield [
-            ['dsn' => 'stomp://localhost:1234/theVhost?foo=bar&lazy=0&sync=true', 'baz' => 'bazVal', 'foo' => 'fooVal'],
+            ['dsn' => 'stomp://localhost:1234/theVhost?foo=foo&lazy=0&sync=true', 'baz' => 'bazVal', 'foo' => 'fooVal'],
             [
                 'host' => 'localhost',
                 'port' => 1234,
@@ -129,7 +129,7 @@ class StompConnectionFactoryConfigTest extends TestCase
                 'connection_timeout' => 1,
                 'sync' => true,
                 'lazy' => false,
-                'foo' => 'bar',
+                'foo' => 'foo',
                 'ssl_on' => false,
                 'baz' => 'bazVal',
             ],
@@ -152,7 +152,7 @@ class StompConnectionFactoryConfigTest extends TestCase
         ];
 
         yield [
-            ['host' => 'localhost', 'port' => 1234, 'foo' => 'bar'],
+            ['host' => 'localhost', 'port' => 1234, 'foo' => 'foo'],
             [
                 'host' => 'localhost',
                 'port' => 1234,
@@ -163,7 +163,7 @@ class StompConnectionFactoryConfigTest extends TestCase
                 'connection_timeout' => 1,
                 'sync' => false,
                 'lazy' => true,
-                'foo' => 'bar',
+                'foo' => 'foo',
                 'ssl_on' => false,
             ],
         ];

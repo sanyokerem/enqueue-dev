@@ -38,7 +38,7 @@ final class SimpleClient
      *
      * $config = amqp:
      * $config = amqp://guest:guest@localhost:5672/%2f?lazy=1&persisted=1
-     * $config = file://foo/bar/
+     * $config = file://foo/foo/
      * $config = null:
      *
      * or an array:

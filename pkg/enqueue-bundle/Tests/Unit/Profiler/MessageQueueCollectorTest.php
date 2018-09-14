@@ -104,14 +104,14 @@ class MessageQueueCollectorTest extends TestCase
         $collector = new MessageQueueCollector($this->createProducerMock());
 
         $this->assertEquals('foo', $collector->ensureString('foo'));
-        $this->assertEquals('bar baz', $collector->ensureString('bar baz'));
+        $this->assertEquals('foo baz', $collector->ensureString('foo baz'));
     }
 
     public function testShouldEnsureStringEncodeArrayToJson()
     {
         $collector = new MessageQueueCollector($this->createProducerMock());
 
-        $this->assertEquals('["foo","bar"]', $collector->ensureString(['foo', 'bar']));
+        $this->assertEquals('["foo","foo"]', $collector->ensureString(['foo', 'foo']));
     }
 
     /**

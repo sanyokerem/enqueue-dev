@@ -50,12 +50,12 @@ $client->sendEvent('user_updated', 'aMessageData');
 
 // or an array
 
-$client->sendEvent('order_price_calculated', ['foo', 'bar']);
+$client->sendEvent('order_price_calculated', ['foo', 'foo']);
 
 // or an json serializable object
 $client->sendEvent('user_activated', new class() implements \JsonSerializable {
     public function jsonSerialize() {
-        return ['foo', 'bar'];
+        return ['foo', 'foo'];
     }
 });
 ```

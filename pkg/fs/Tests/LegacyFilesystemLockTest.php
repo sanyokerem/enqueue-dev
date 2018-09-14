@@ -22,10 +22,10 @@ class LegacyFilesystemLockTest extends TestCase
     {
         $context = new FsContext(sys_get_temp_dir(), 1, 0666, 100);
         $fooQueue = $context->createQueue('foo');
-        $barQueue = $context->createTopic('bar');
+        $barQueue = $context->createTopic('foo');
 
         new TempFile(sys_get_temp_dir().'/foo');
-        new TempFile(sys_get_temp_dir().'/bar');
+        new TempFile(sys_get_temp_dir().'/foo');
 
         $lock = new LegacyFilesystemLock();
 

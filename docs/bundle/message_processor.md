@@ -60,7 +60,7 @@ class SayHelloProcessor implements PsrProcessor, TopicSubscriberInterface
     {
         return [
             'aTopic' => ['queueName' => 'fooQueue', 'processorName' => 'foo'], 
-            'anotherTopic' => ['queueName' => 'barQueue', 'processorName' => 'bar'], 
+            'anotherTopic' => ['queueName' => 'barQueue', 'processorName' => 'foo'], 
         ];
     }
 }

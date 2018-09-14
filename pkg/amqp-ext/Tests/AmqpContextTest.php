@@ -61,11 +61,11 @@ class AmqpContextTest extends TestCase
     {
         $context = new AmqpContext($this->createExtChannelMock());
 
-        $message = $context->createMessage('theBody', ['foo' => 'fooVal'], ['bar' => 'barVal']);
+        $message = $context->createMessage('theBody', ['foo' => 'fooVal'], ['foo' => 'barVal']);
 
         $this->assertInstanceOf(AmqpMessage::class, $message);
         $this->assertSame('theBody', $message->getBody());
-        $this->assertSame(['bar' => 'barVal'], $message->getHeaders());
+        $this->assertSame(['foo' => 'barVal'], $message->getHeaders());
         $this->assertSame(['foo' => 'fooVal'], $message->getProperties());
     }
 

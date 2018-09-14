@@ -93,9 +93,9 @@ class FsConnectionFactoryConfigTest extends TestCase
         ];
 
         yield [
-            '/foo/bar/baz',
+            '/foo/foo/baz',
             [
-                'path' => '/foo/bar/baz',
+                'path' => '/foo/foo/baz',
                 'pre_fetch_count' => 1,
                 'chmod' => 0600,
                 'polling_interval' => 100,
@@ -103,9 +103,9 @@ class FsConnectionFactoryConfigTest extends TestCase
         ];
 
         yield [
-            'file:///foo/bar/baz',
+            'file:///foo/foo/baz',
             [
-                'path' => '/foo/bar/baz',
+                'path' => '/foo/foo/baz',
                 'pre_fetch_count' => 1,
                 'chmod' => 0600,
                 'polling_interval' => 100,
@@ -113,9 +113,9 @@ class FsConnectionFactoryConfigTest extends TestCase
         ];
 
         yield [
-            'file:///foo/bar/baz?pre_fetch_count=100&chmod=0666',
+            'file:///foo/foo/baz?pre_fetch_count=100&chmod=0666',
             [
-                'path' => '/foo/bar/baz',
+                'path' => '/foo/foo/baz',
                 'pre_fetch_count' => 100,
                 'chmod' => 0666,
                 'polling_interval' => 100,

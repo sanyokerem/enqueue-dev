@@ -45,7 +45,7 @@ class RdKafkaProducerTest extends TestCase
 
     public function testShouldUseSerializerToEncodeMessageAndPutToExpectedTube()
     {
-        $message = new RdKafkaMessage('theBody', ['foo' => 'fooVal'], ['bar' => 'barVal']);
+        $message = new RdKafkaMessage('theBody', ['foo' => 'fooVal'], ['foo' => 'barVal']);
         $message->setKey('key');
 
         $kafkaTopic = $this->createKafkaTopicMock();
@@ -165,7 +165,7 @@ class RdKafkaProducerTest extends TestCase
 
     public function testShouldAllowSerializersToSerializeKeys()
     {
-        $message = new RdKafkaMessage('theBody', ['foo' => 'fooVal'], ['bar' => 'barVal']);
+        $message = new RdKafkaMessage('theBody', ['foo' => 'fooVal'], ['foo' => 'barVal']);
         $message->setKey('key');
 
         $kafkaTopic = $this->createKafkaTopicMock();

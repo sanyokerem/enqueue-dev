@@ -125,7 +125,7 @@ class ResourcesTest extends TestCase
             $driverClass,
             ['fooscheme', 'barscheme'],
             ['fooextension', 'barextension'],
-            ['foo/bar']
+            ['foo/foo']
         );
 
         $availableDrivers = Resources::getAvailableDrivers();
@@ -141,6 +141,6 @@ class ResourcesTest extends TestCase
         $this->assertSame(['fooextension', 'barextension'], $driverInfo['requiredSchemeExtensions']);
 
         $this->assertArrayHasKey('packages', $driverInfo);
-        $this->assertSame(['foo/bar'], $driverInfo['packages']);
+        $this->assertSame(['foo/foo'], $driverInfo['packages']);
     }
 }

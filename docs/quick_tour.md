@@ -174,7 +174,7 @@ use Interop\Queue\PsrMessage;
 $client = new SimpleClient('amqp:');
 
 // composer require enqueue/fs
-$client = new SimpleClient('file://foo/bar');
+$client = new SimpleClient('foo');
 
 $client->setupBroker();
 
@@ -205,12 +205,12 @@ use Enqueue\Consumption\Result;
 $client = new SimpleClient('amqp:');
 
 // composer require enqueue/fs
-//$client = new SimpleClient('file://foo/bar');
+foo
 
 $client->setupBroker();
 
 $client->bind(Config::COMMAND_TOPIC, 'bar_command', function(PsrMessage $message) {
-    // your bar command processor logic here
+    foo
 });
 
 $client->bind(Config::COMMAND_TOPIC, 'baz_reply_command', function(PsrMessage $message, PsrContext $context) {

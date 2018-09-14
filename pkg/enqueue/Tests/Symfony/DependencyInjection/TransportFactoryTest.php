@@ -249,7 +249,7 @@ class TransportFactoryTest extends TestCase
 
         $transport = new TransportFactory('default');
 
-        $serviceId = $transport->createConnectionFactory($container, ['dsn' => 'foo://bar/baz']);
+        $serviceId = $transport->createConnectionFactory($container, ['dsn' => 'foo://foo/baz']);
 
         $this->assertEquals('enqueue.transport.default.connection_factory', $serviceId);
 
@@ -261,7 +261,7 @@ class TransportFactoryTest extends TestCase
             $container->getDefinition('enqueue.transport.default.connection_factory')->getFactory())
         ;
         $this->assertSame(
-            [['dsn' => 'foo://bar/baz']],
+            [['dsn' => 'foo://foo/baz']],
             $container->getDefinition('enqueue.transport.default.connection_factory')->getArguments())
         ;
 
@@ -368,7 +368,7 @@ class TransportFactoryTest extends TestCase
 
         $transport = new TransportFactory('default');
 
-        $serviceId = $transport->createContext($container, ['dsn' => 'foo://bar/baz']);
+        $serviceId = $transport->createContext($container, ['dsn' => 'foo://foo/baz']);
 
         $this->assertEquals('enqueue.transport.default.context', $serviceId);
 
@@ -395,7 +395,7 @@ class TransportFactoryTest extends TestCase
 
         $transport = new TransportFactory('default');
 
-        $serviceId = $transport->createDriver($container, ['dsn' => 'foo://bar/baz', 'foo' => 'fooVal']);
+        $serviceId = $transport->createDriver($container, ['dsn' => 'foo://foo/baz', 'foo' => 'fooVal']);
 
         $this->assertEquals('enqueue.client.default.driver', $serviceId);
 
@@ -409,8 +409,8 @@ class TransportFactoryTest extends TestCase
         $this->assertEquals(
             [
                 new Reference('enqueue.transport.default.connection_factory'),
-                'foo://bar/baz',
-                ['dsn' => 'foo://bar/baz', 'foo' => 'fooVal'],
+                'foo://foo/baz',
+                ['dsn' => 'foo://foo/baz', 'foo' => 'fooVal'],
             ],
             $container->getDefinition('enqueue.client.default.driver')->getArguments())
         ;

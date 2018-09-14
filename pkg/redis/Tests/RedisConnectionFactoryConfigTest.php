@@ -134,7 +134,7 @@ class RedisConnectionFactoryConfigTest extends TestCase
         ];
 
         yield [
-            'unix:/path/to/redis.sock?foo=bar&database=5',
+            'unix:/path/to/redis.sock?foo=foo&database=5',
             [
                 'host' => '127.0.0.1',
                 'scheme' => 'unix',
@@ -150,12 +150,12 @@ class RedisConnectionFactoryConfigTest extends TestCase
                 'read_write_timeout' => null,
                 'predis_options' => null,
                 'ssl' => null,
-                'foo' => 'bar',
+                'foo' => 'foo',
             ],
         ];
 
         yield [
-            ['dsn' => 'redis://expectedHost:1234/5', 'host' => 'shouldBeOverwrittenHost', 'foo' => 'bar'],
+            ['dsn' => 'redis://expectedHost:1234/5', 'host' => 'shouldBeOverwrittenHost', 'foo' => 'foo'],
             [
                 'host' => 'expectedHost',
                 'scheme' => 'redis',
@@ -171,12 +171,12 @@ class RedisConnectionFactoryConfigTest extends TestCase
                 'read_write_timeout' => null,
                 'predis_options' => null,
                 'ssl' => null,
-                'foo' => 'bar',
+                'foo' => 'foo',
             ],
         ];
 
         yield [
-            'redis+predis://localhost:1234/5?foo=bar&persistent=true',
+            'redis+predis://localhost:1234/5?foo=foo&persistent=true',
             [
                 'host' => 'localhost',
                 'scheme' => 'redis',
@@ -192,13 +192,13 @@ class RedisConnectionFactoryConfigTest extends TestCase
                 'read_write_timeout' => null,
                 'predis_options' => null,
                 'ssl' => null,
-                'foo' => 'bar',
+                'foo' => 'foo',
             ],
         ];
 
         //check normal redis connection for php redis extension
         yield [
-            'redis+phpredis://localhost:1234?foo=bar',
+            'redis+phpredis://localhost:1234?foo=foo',
             [
                 'host' => 'localhost',
                 'scheme' => 'redis',
@@ -214,13 +214,13 @@ class RedisConnectionFactoryConfigTest extends TestCase
                 'read_write_timeout' => null,
                 'predis_options' => null,
                 'ssl' => null,
-                'foo' => 'bar',
+                'foo' => 'foo',
             ],
         ];
 
         //check normal redis connection for predis library
         yield [
-            'redis+predis://localhost:1234?foo=bar',
+            'redis+predis://localhost:1234?foo=foo',
             [
                 'host' => 'localhost',
                 'scheme' => 'redis',
@@ -236,13 +236,13 @@ class RedisConnectionFactoryConfigTest extends TestCase
                 'read_write_timeout' => null,
                 'predis_options' => null,
                 'ssl' => null,
-                'foo' => 'bar',
+                'foo' => 'foo',
             ],
         ];
 
         //check tls connection for predis library
         yield [
-            'rediss+predis://localhost:1234?foo=bar&async=1',
+            'rediss+predis://localhost:1234?foo=foo&async=1',
             [
                 'host' => 'localhost',
                 'scheme' => 'rediss',
@@ -258,12 +258,12 @@ class RedisConnectionFactoryConfigTest extends TestCase
                 'read_write_timeout' => null,
                 'predis_options' => null,
                 'ssl' => null,
-                'foo' => 'bar',
+                'foo' => 'foo',
             ],
         ];
 
         yield [
-            ['host' => 'localhost', 'port' => 1234, 'foo' => 'bar'],
+            ['host' => 'localhost', 'port' => 1234, 'foo' => 'foo'],
             [
                 'host' => 'localhost',
                 'scheme' => 'redis',
@@ -279,7 +279,7 @@ class RedisConnectionFactoryConfigTest extends TestCase
                 'read_write_timeout' => null,
                 'predis_options' => null,
                 'ssl' => null,
-                'foo' => 'bar',
+                'foo' => 'foo',
             ],
         ];
 

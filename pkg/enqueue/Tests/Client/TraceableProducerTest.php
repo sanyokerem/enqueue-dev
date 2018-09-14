@@ -67,13 +67,13 @@ class TraceableProducerTest extends TestCase
     {
         $producer = new TraceableProducer($this->createProducerMock());
 
-        $producer->sendEvent('aFooTopic', ['foo' => 'fooVal', 'bar' => 'barVal']);
+        $producer->sendEvent('aFooTopic', ['foo' => 'fooVal', 'foo' => 'barVal']);
 
         $this->assertSame([
             [
                 'topic' => 'aFooTopic',
                 'command' => null,
-                'body' => ['foo' => 'fooVal', 'bar' => 'barVal'],
+                'body' => ['foo' => 'fooVal', 'foo' => 'barVal'],
                 'headers' => [],
                 'properties' => [],
                 'priority' => null,
@@ -91,7 +91,7 @@ class TraceableProducerTest extends TestCase
         $producer = new TraceableProducer($this->createProducerMock());
 
         $message = new Message();
-        $message->setBody(['foo' => 'fooVal', 'bar' => 'barVal']);
+        $message->setBody(['foo' => 'fooVal', 'foo' => 'barVal']);
         $message->setProperty('fooProp', 'fooVal');
         $message->setHeader('fooHeader', 'fooVal');
         $message->setContentType('theContentType');
@@ -107,7 +107,7 @@ class TraceableProducerTest extends TestCase
             [
                 'topic' => 'aFooTopic',
                 'command' => null,
-                'body' => ['foo' => 'fooVal', 'bar' => 'barVal'],
+                'body' => ['foo' => 'fooVal', 'foo' => 'barVal'],
                 'headers' => ['fooHeader' => 'fooVal'],
                 'properties' => ['fooProp' => 'fooVal'],
                 'priority' => 'theMessagePriority',
@@ -184,13 +184,13 @@ class TraceableProducerTest extends TestCase
     {
         $producer = new TraceableProducer($this->createProducerMock());
 
-        $producer->sendCommand('aFooCommand', ['foo' => 'fooVal', 'bar' => 'barVal']);
+        $producer->sendCommand('aFooCommand', ['foo' => 'fooVal', 'foo' => 'barVal']);
 
         $this->assertSame([
             [
                 'topic' => Config::COMMAND_TOPIC,
                 'command' => 'aFooCommand',
-                'body' => ['foo' => 'fooVal', 'bar' => 'barVal'],
+                'body' => ['foo' => 'fooVal', 'foo' => 'barVal'],
                 'headers' => [],
                 'properties' => [],
                 'priority' => null,
@@ -208,7 +208,7 @@ class TraceableProducerTest extends TestCase
         $producer = new TraceableProducer($this->createProducerMock());
 
         $message = new Message();
-        $message->setBody(['foo' => 'fooVal', 'bar' => 'barVal']);
+        $message->setBody(['foo' => 'fooVal', 'foo' => 'barVal']);
         $message->setProperty('fooProp', 'fooVal');
         $message->setHeader('fooHeader', 'fooVal');
         $message->setContentType('theContentType');
@@ -224,7 +224,7 @@ class TraceableProducerTest extends TestCase
             [
                 'topic' => Config::COMMAND_TOPIC,
                 'command' => 'aFooCommand',
-                'body' => ['foo' => 'fooVal', 'bar' => 'barVal'],
+                'body' => ['foo' => 'fooVal', 'foo' => 'barVal'],
                 'headers' => ['fooHeader' => 'fooVal'],
                 'properties' => ['fooProp' => 'fooVal'],
                 'priority' => 'theMessagePriority',
