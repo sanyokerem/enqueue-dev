@@ -3,9 +3,9 @@
 set -e
 set -x
 
-CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
-
 cd $(dirname $0)'/../';
+
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
 
 function split()
 {
