@@ -9,8 +9,8 @@ function split()
 {
 #    split_new_repo $1 $2
 
-
-    SHA1=`./bin/splitsh-lite --prefix=$1`
+    DIR=$(dirname $0);+
+    SHA1=`$DIR/splitsh-lite --prefix=$1`
     git push $2 "$SHA1:refs/heads/$CURRENT_BRANCH"
 }
 
@@ -45,6 +45,9 @@ function remote()
 
 remote redis git@github.com:sanyokerem/redis.git
 remote rdkafka git@github.com:sanyokerem/rdkafka.git
+
+DIR=$(dirname $0);
+echo $DIR/../;
 
 split 'pkg/rdkafka' rdkafka
 split 'pkg/redis' redis
