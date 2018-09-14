@@ -43,50 +43,8 @@ function remote()
     git remote add $1 $2 || true
 }
 
-remote enqueue git@github.com:php-enqueue/enqueue.git
-remote simple-client git@github.com:php-enqueue/simple-client.git
-remote stomp git@github.com:php-enqueue/stomp.git
-remote amqp-ext git@github.com:php-enqueue/amqp-ext.git
-remote amqp-lib git@github.com:php-enqueue/amqp-lib.git
-remote amqp-bunny git@github.com:php-enqueue/amqp-bunny.git
-remote amqp-tools git@github.com:php-enqueue/amqp-tools.git
-remote pheanstalk git@github.com:php-enqueue/pheanstalk.git
-remote gearman git@github.com:php-enqueue/gearman.git
-remote fs git@github.com:php-enqueue/fs.git
-remote redis git@github.com:php-enqueue/redis.git
-remote rdkafka git@github.com:php-enqueue/rdkafka.git
-remote dbal git@github.com:php-enqueue/dbal.git
-remote null git@github.com:php-enqueue/null.git
-remote sqs git@github.com:php-enqueue/sqs.git
-remote gps git@github.com:php-enqueue/gps.git
-remote enqueue-bundle git@github.com:php-enqueue/enqueue-bundle.git
-remote job-queue git@github.com:php-enqueue/job-queue.git
-remote test git@github.com:php-enqueue/test.git
-remote async-event-dispatcher git@github.com:php-enqueue/async-event-dispatcher.git
-remote async-command git@github.com:php-enqueue/async-command.git
-remote mongodb git@github.com:php-enqueue/mongodb.git
-remote dsn git@github.com:php-enqueue/dsn.git
+remote redis git@github.com:sanyokerem/redis.git
+remote rdkafka git@github.com:sanyokerem/rdkafka.git
 
-split 'pkg/enqueue' enqueue
-split 'pkg/simple-client' simple-client
-split 'pkg/stomp' stomp
-split 'pkg/amqp-ext' amqp-ext
-split 'pkg/amqp-lib' amqp-lib
-split 'pkg/amqp-bunny' amqp-bunny
-split 'pkg/amqp-tools' amqp-tools
-split 'pkg/pheanstalk' pheanstalk
-split 'pkg/gearman' gearman
 split 'pkg/rdkafka' rdkafka
-split 'pkg/fs' fs
 split 'pkg/redis' redis
-split 'pkg/dbal' dbal
-split 'pkg/null' null
-split 'pkg/sqs' sqs
-split 'pkg/gps' gps
-split 'pkg/enqueue-bundle' enqueue-bundle
-split 'pkg/job-queue' job-queue
-split 'pkg/test' test
-split 'pkg/async-event-dispatcher' async-event-dispatcher
-split 'pkg/async-command' async-command
-split 'pkg/mongodb' mongodb
-split 'pkg/dsn' dsn
